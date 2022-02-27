@@ -27,7 +27,7 @@ function App() {
   let [ticker, setTicker] = useState("");
   let [spinner, setSpinner] = useState(false);
   
-  let [validation, setValidation] = useState(false);
+  let [validation, setValidation] = useState(true);
   let [query, setQuery] = useState("")
 
   let set_list = new Set();
