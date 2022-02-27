@@ -6,21 +6,21 @@ import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Stack from 'react-bootstrap/Stack';
 import bull from './Stockingtonlogo.png'
+import raw from './nyse.txt';
 // import TextField from '@mui/material/TextField';
 
 function App() {
-  
+  let arr = []
   let readFile = () => {
-    var file = new File([""], "/Users/keerthana/Desktop/VTHacks2022/stockington-react/src/nyse.txt");
-    console.log(file.size);
-    // var fr =new FileReader();
-    // fr.onload=function(){
-    //     console.log(fr.result);
-    // }
-    // var file = new File()
-    // fr.readAsText();
-    // });
-  }
+  
+    fetch(raw)
+    .then(r => r.text())
+    .then(text => {
+      arr = text.split('\n')
+      console.log(arr);
+    });
+
+  } 
   
   
   //   const lineReader = require('line-reader');
@@ -42,8 +42,9 @@ function App() {
 
   let validateTicker = (query) => {
     console.log(query);
-    if (set_list.has(query))
+    if (arr.includes(query))
     {
+      console.log("yay");
       setValidation(true);
       setSpinner(true);
     }
