@@ -96,7 +96,7 @@ function App() {
             Submit
           </Button>
 
-          <Button disabled className="mb-3" size="lg" variant="outline-warning" className="mybutton float-right" type="submit" onClick={handleShow}>
+          <Button disabled className="mb-3" size="lg" variant="outline-warning" className="mybutton float-right" type="submit">
             Notify Me For The Next Report
             </Button> 
           </div>:
@@ -122,9 +122,8 @@ function App() {
           {spinner ? <Spinner className="loader" animation="grow" variant="light" /> : null }
         </Stack>
         {report.map((value, index) => {
-              return <div key={index}>{value}</div>
+              return <div className="result" key={index}>{value}</div>
             })}
-        
       </header>
       
     </div>
